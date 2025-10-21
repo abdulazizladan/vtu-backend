@@ -74,7 +74,7 @@ export interface TransactionStatusResponse {
 export class MonnifyService {
   private readonly baseUrl = 'https://sandbox.monnify.com';
   private readonly apiKey = 'MK_TEST_ZW2QZQQY0R';
-  private readonly secretKey = '0876759920';
+  private readonly secretKey = '3JT24ZAPTKZB5JJV5ZFFNBKE3DG0DZLR';
   private accessToken: string;
   private tokenExpiry: Date;
   private readonly logger = new Logger(MonnifyService.name);
