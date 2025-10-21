@@ -9,7 +9,6 @@ async function bootstrap() {
     .setTitle('VeeTU app')
     .setDescription('VTU management app')
     .setVersion('1.0')
-    .addTag('cats')
     .build();
   const documentFactory = () => SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, documentFactory);
