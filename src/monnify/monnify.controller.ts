@@ -16,14 +16,6 @@ import {
   import { 
     MonnifyService
   } from './monnify.service';
-  //import { 
-    //CreateTransactionDto,
-    //TransactionQueryDto,
-    //AccountValidationQueryDto,
-    //WebhookDto,
-    //ApiResponseDto,
-    //TransactionResponseDto
-  //} from './';
   import { CreateTransactionDto } from './dto/create-transaction.dto';
   import { AccountValidationQueryDto } from './dto/query-params.dto';
   import { WebhookDto } from './dto/webhook.dto';
@@ -32,7 +24,7 @@ import {
   import { TransactionResponseDto } from './dto/response.dto';
   import { ApiTags, ApiOperation, ApiResponse, ApiBody } from '@nestjs/swagger';
   
-  @ApiTags('payments')
+  @ApiTags('Monnify')
   @Controller('payments')
   @UsePipes(new ValidationPipe({ transform: true, whitelist: true }))
   export class MonnifyController {

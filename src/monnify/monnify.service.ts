@@ -1,5 +1,6 @@
 // monnify.service.ts
 import { Injectable, HttpException, HttpStatus, Logger } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
 import { HttpService } from '@nestjs/axios';
 import { firstValueFrom } from 'rxjs';
 
@@ -75,11 +76,22 @@ export class MonnifyService {
   private readonly baseUrl = 'https://sandbox.monnify.com';
   private readonly apiKey = 'MK_TEST_ZW2QZQQY0R';
   private readonly secretKey = '3JT24ZAPTKZB5JJV5ZFFNBKE3DG0DZLR';
+  //private readonly secretKey = MONNIFY_SECRET_KEY
   private accessToken: string;
   private tokenExpiry: Date;
   private readonly logger = new Logger(MonnifyService.name);
 
-  constructor(private httpService: HttpService) {}
+  constructor(
+    private httpService: HttpService, 
+    //private configService: ConfigService
+) {
+    /**const config = {
+        MONNIFY_API_KEY: this.configService.get<string>('MONNIFY_API_KEY'),
+        MONNIFY_SECRET_KEY: this.configService.get<string>('MONNIFY_SECRET_KEY'),
+        MONNIFY_CONTRACT_CODE: this.configService.get<string>('MONNIFY_CONTRACT_CODE'),
+        MONNIFY_BASE_URL: this.configService.get<string>('MONNIFY_BASE_URL')
+    }**/
+  }
 
   private async ensureAuthenticated(): Promise<void> {
     if (!this.accessToken || this.isTokenExpired()) {
